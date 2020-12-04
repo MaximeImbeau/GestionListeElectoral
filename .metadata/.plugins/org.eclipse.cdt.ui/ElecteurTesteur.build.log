@@ -1,0 +1,15 @@
+22:04:23 **** Incremental Build of configuration Debug for project ElecteurTesteur ****
+make all 
+Building file: ../ElecteurTesteur.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/C++_Shared_Folder/TP3_1/source" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ElecteurTesteur.d" -MT"ElecteurTesteur.o" -o "ElecteurTesteur.o" "../ElecteurTesteur.cpp"
+Finished building: ../ElecteurTesteur.cpp
+ 
+Building target: ElecteurTesteur
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/C++_Shared_Folder/TP3_1/source/Debug" -o "ElecteurTesteur"  ./ElecteurTesteur.o   -lsource -lgtest_main -lgtest -lpthread
+Finished building target: ElecteurTesteur
+ 
+
+22:04:25 Build Finished (took 2s.200ms)
+

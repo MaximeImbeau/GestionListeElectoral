@@ -1,0 +1,155 @@
+\hypertarget{classelections_1_1Circonscription}{}\section{elections\+:\+:Circonscription Class Reference}
+\label{classelections_1_1Circonscription}\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+
+
+La classe \hyperlink{classelections_1_1Circonscription}{Circonscription} permet de faire la gestion des listes électorales.  
+
+
+
+
+{\ttfamily \#include $<$Circonscription.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classelections_1_1Circonscription_a73b7ff6d629d356fc9a38337848d5e00}{Circonscription} (const string \&p\+\_\+nom\+Circonscription, const \hyperlink{classelections_1_1Candidat}{elections\+::\+Candidat} \&p\+\_\+depute\+Elu)
+\begin{DoxyCompactList}\small\item\em Constructeur avec paramètre Création d\textquotesingle{}un objet \hyperlink{classelections_1_1Circonscription}{Circonscription} à partir de valeurs passées en paramètres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classelections_1_1Circonscription_abc80c8b4c096dfc36a55cc0e7b8d3a8c}\label{classelections_1_1Circonscription_abc80c8b4c096dfc36a55cc0e7b8d3a8c}} 
+\hyperlink{classelections_1_1Circonscription_abc80c8b4c096dfc36a55cc0e7b8d3a8c}{$\sim$\+Circonscription} ()
+\begin{DoxyCompactList}\small\item\em Destructeur responsable de désallouer toutes les Personnes de la liste dans le vecteur. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classelections_1_1Circonscription_adbacabf731fe2afccc919b8bd8c4eae8}{req\+Nom\+Circonscription} () const
+\begin{DoxyCompactList}\small\item\em retourne le nom de la circonscription \end{DoxyCompactList}\item 
+const \hyperlink{classelections_1_1Candidat}{elections\+::\+Candidat} \& \hyperlink{classelections_1_1Circonscription_a162a8ccd10bbfe3297489e19e924f3d1}{req\+Depute\+Elu} () const
+\begin{DoxyCompactList}\small\item\em retourne le candidat sortant d\textquotesingle{}une circonscription \end{DoxyCompactList}\item 
+void \hyperlink{classelections_1_1Circonscription_a808d1495bfb8dda4bb75114d3387d35b}{inscrire} (const \hyperlink{classelections_1_1Personne}{Personne} \&p\+\_\+nouvel\+Inscrit)
+\begin{DoxyCompactList}\small\item\em Methode qui permet d’inscrire une personne sur la liste électorale de la circonscription. \end{DoxyCompactList}\item 
+\hyperlink{classelections_1_1Circonscription_ab97d93c0108451f646ec8101caa39999}{Circonscription} (const \hyperlink{classelections_1_1Circonscription}{Circonscription} \&p\+\_\+circonscription)
+\begin{DoxyCompactList}\small\item\em Constructeur copie Création d\textquotesingle{}un objet \hyperlink{classelections_1_1Circonscription}{Circonscription} copie a partie d’un autre objet \hyperlink{classelections_1_1Circonscription}{Circonscription}. \end{DoxyCompactList}\item 
+const \hyperlink{classelections_1_1Circonscription}{Circonscription} \& \hyperlink{classelections_1_1Circonscription_ab61ae982ba5f251ee1ac20bd660498b1}{operator=} (const \hyperlink{classelections_1_1Circonscription}{Circonscription} \&p\+\_\+circonscription)
+\begin{DoxyCompactList}\small\item\em surcharge de l\textquotesingle{}opérateur = \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classelections_1_1Circonscription_aeea7de1ad15f781187aec0f0e01a14f4}{req\+Circonscription\+Formate} () const
+\begin{DoxyCompactList}\small\item\em Affiche les informations de la circonscription sous forme d\textquotesingle{}une chaîne de caractère formatée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+La classe \hyperlink{classelections_1_1Circonscription}{Circonscription} permet de faire la gestion des listes électorales. 
+
+\begin{DoxyInvariant}{Invariant}
+de la classe\+: le nom de la circonscription ne doit pas etre vide 
+\end{DoxyInvariant}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classelections_1_1Circonscription_a73b7ff6d629d356fc9a38337848d5e00}\label{classelections_1_1Circonscription_a73b7ff6d629d356fc9a38337848d5e00}} 
+\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}!Circonscription@{Circonscription}}
+\index{Circonscription@{Circonscription}!elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+\subsubsection{\texorpdfstring{Circonscription()}{Circonscription()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily elections\+::\+Circonscription\+::\+Circonscription (\begin{DoxyParamCaption}\item[{const string \&}]{p\+\_\+nom\+Circonscription,  }\item[{const \hyperlink{classelections_1_1Candidat}{elections\+::\+Candidat} \&}]{p\+\_\+depute\+Elu }\end{DoxyParamCaption})}
+
+
+
+Constructeur avec paramètre Création d\textquotesingle{}un objet \hyperlink{classelections_1_1Circonscription}{Circonscription} à partir de valeurs passées en paramètres. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+nom\+Circonscription} & nom de la circonscription \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+depute\+Elu} & depute elu sortant \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classelections_1_1Circonscription_ab97d93c0108451f646ec8101caa39999}\label{classelections_1_1Circonscription_ab97d93c0108451f646ec8101caa39999}} 
+\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}!Circonscription@{Circonscription}}
+\index{Circonscription@{Circonscription}!elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+\subsubsection{\texorpdfstring{Circonscription()}{Circonscription()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily elections\+::\+Circonscription\+::\+Circonscription (\begin{DoxyParamCaption}\item[{const \hyperlink{classelections_1_1Circonscription}{Circonscription} \&}]{p\+\_\+circonscription }\end{DoxyParamCaption})}
+
+
+
+Constructeur copie Création d\textquotesingle{}un objet \hyperlink{classelections_1_1Circonscription}{Circonscription} copie a partie d’un autre objet \hyperlink{classelections_1_1Circonscription}{Circonscription}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+circonscription} & une circonscription \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classelections_1_1Circonscription_a808d1495bfb8dda4bb75114d3387d35b}\label{classelections_1_1Circonscription_a808d1495bfb8dda4bb75114d3387d35b}} 
+\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}!inscrire@{inscrire}}
+\index{inscrire@{inscrire}!elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+\subsubsection{\texorpdfstring{inscrire()}{inscrire()}}
+{\footnotesize\ttfamily void elections\+::\+Circonscription\+::inscrire (\begin{DoxyParamCaption}\item[{const \hyperlink{classelections_1_1Personne}{Personne} \&}]{p\+\_\+nouvel\+Inscrit }\end{DoxyParamCaption})}
+
+
+
+Methode qui permet d’inscrire une personne sur la liste électorale de la circonscription. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+nouvel\+Inscrit} & nouvelle personne qui sera inscrite a la liste electorale \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classelections_1_1Circonscription_ab61ae982ba5f251ee1ac20bd660498b1}\label{classelections_1_1Circonscription_ab61ae982ba5f251ee1ac20bd660498b1}} 
+\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}!operator=@{operator=}}
+\index{operator=@{operator=}!elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily const \hyperlink{classelections_1_1Circonscription}{Circonscription} \& elections\+::\+Circonscription\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classelections_1_1Circonscription}{Circonscription} \&}]{p\+\_\+circonscription }\end{DoxyParamCaption})}
+
+
+
+surcharge de l\textquotesingle{}opérateur = 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+circonscription} & une circonscription valide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}objet courant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Circonscription_aeea7de1ad15f781187aec0f0e01a14f4}\label{classelections_1_1Circonscription_aeea7de1ad15f781187aec0f0e01a14f4}} 
+\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}!req\+Circonscription\+Formate@{req\+Circonscription\+Formate}}
+\index{req\+Circonscription\+Formate@{req\+Circonscription\+Formate}!elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+\subsubsection{\texorpdfstring{req\+Circonscription\+Formate()}{reqCirconscriptionFormate()}}
+{\footnotesize\ttfamily string elections\+::\+Circonscription\+::req\+Circonscription\+Formate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Affiche les informations de la circonscription sous forme d\textquotesingle{}une chaîne de caractère formatée. 
+
+\begin{DoxyReturn}{Returns}
+les informations sur une circonscription 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Circonscription_a162a8ccd10bbfe3297489e19e924f3d1}\label{classelections_1_1Circonscription_a162a8ccd10bbfe3297489e19e924f3d1}} 
+\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}!req\+Depute\+Elu@{req\+Depute\+Elu}}
+\index{req\+Depute\+Elu@{req\+Depute\+Elu}!elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+\subsubsection{\texorpdfstring{req\+Depute\+Elu()}{reqDeputeElu()}}
+{\footnotesize\ttfamily const \hyperlink{classelections_1_1Candidat}{Candidat} \& elections\+::\+Circonscription\+::req\+Depute\+Elu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le candidat sortant d\textquotesingle{}une circonscription 
+
+\begin{DoxyReturn}{Returns}
+Depute elu est un objet candidat qui représente le candidat sortant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Circonscription_adbacabf731fe2afccc919b8bd8c4eae8}\label{classelections_1_1Circonscription_adbacabf731fe2afccc919b8bd8c4eae8}} 
+\index{elections\+::\+Circonscription@{elections\+::\+Circonscription}!req\+Nom\+Circonscription@{req\+Nom\+Circonscription}}
+\index{req\+Nom\+Circonscription@{req\+Nom\+Circonscription}!elections\+::\+Circonscription@{elections\+::\+Circonscription}}
+\subsubsection{\texorpdfstring{req\+Nom\+Circonscription()}{reqNomCirconscription()}}
+{\footnotesize\ttfamily const string \& elections\+::\+Circonscription\+::req\+Nom\+Circonscription (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le nom de la circonscription 
+
+\begin{DoxyReturn}{Returns}
+le nom est une string qui représente le nom de la circonscription 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Circonscription_8h}{Circonscription.\+h}\item 
+\hyperlink{Circonscription_8cpp}{Circonscription.\+cpp}\end{DoxyCompactItemize}

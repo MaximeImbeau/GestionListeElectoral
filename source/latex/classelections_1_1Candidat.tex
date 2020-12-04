@@ -1,0 +1,138 @@
+\hypertarget{classelections_1_1Candidat}{}\section{elections\+:\+:Candidat Class Reference}
+\label{classelections_1_1Candidat}\index{elections\+::\+Candidat@{elections\+::\+Candidat}}
+
+
+Classe dérivée de la classe \hyperlink{classelections_1_1Personne}{Personne}.  
+
+
+
+
+{\ttfamily \#include $<$Candidat.\+h$>$}
+
+
+
+Inheritance diagram for elections\+:\+:Candidat\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classelections_1_1Candidat__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for elections\+:\+:Candidat\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=183pt]{classelections_1_1Candidat__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classelections_1_1Candidat_a543dcf32971b2fc7c8fe984ea007c83a}{Candidat} (const string \&p\+\_\+nas, const string \&p\+\_\+prenom, const string \&p\+\_\+nom, const \hyperlink{classutil_1_1Date}{util\+::\+Date} \&p\+\_\+date\+Naissance, const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \&p\+\_\+adresse, int p\+\_\+parti\+Politique)
+\begin{DoxyCompactList}\small\item\em Constructeur avec paramètre Création d\textquotesingle{}un objet \hyperlink{classelections_1_1Candidat}{Candidat} à partir de valeurs passées en paramètres. \end{DoxyCompactList}\item 
+virtual \hyperlink{classelections_1_1Personne}{Personne} $\ast$ \hyperlink{classelections_1_1Candidat_ac93fed3409eb4617620d70a1d031ae89}{clone} () const
+\begin{DoxyCompactList}\small\item\em \hyperlink{classelections_1_1Candidat_ac93fed3409eb4617620d70a1d031ae89}{clone()} permet de faire une copie allouée sur le monceau de l\textquotesingle{}objet courant \end{DoxyCompactList}\item 
+int \hyperlink{classelections_1_1Candidat_a150b2e680fbea708f222e5e8bfd823e4}{req\+Parti\+Politique} () const
+\begin{DoxyCompactList}\small\item\em Accesseur sur le parti politique du candidat. \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classelections_1_1Candidat_a4b614df7326d8aacdec158b77a6ec406}{req\+Personne\+Formate} () const
+\begin{DoxyCompactList}\small\item\em Affiche les informations du candidat sous forme d\textquotesingle{}une chaîne de caractère formatée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe dérivée de la classe \hyperlink{classelections_1_1Personne}{Personne}. 
+
+\begin{DoxyInvariant}{Invariant}
+de la classe\+: le parti politique doit etre un chiffre de 0 a 4 
+\end{DoxyInvariant}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classelections_1_1Candidat_a543dcf32971b2fc7c8fe984ea007c83a}\label{classelections_1_1Candidat_a543dcf32971b2fc7c8fe984ea007c83a}} 
+\index{elections\+::\+Candidat@{elections\+::\+Candidat}!Candidat@{Candidat}}
+\index{Candidat@{Candidat}!elections\+::\+Candidat@{elections\+::\+Candidat}}
+\subsubsection{\texorpdfstring{Candidat()}{Candidat()}}
+{\footnotesize\ttfamily elections\+::\+Candidat\+::\+Candidat (\begin{DoxyParamCaption}\item[{const string \&}]{p\+\_\+nas,  }\item[{const string \&}]{p\+\_\+prenom,  }\item[{const string \&}]{p\+\_\+nom,  }\item[{const \hyperlink{classutil_1_1Date}{util\+::\+Date} \&}]{p\+\_\+date\+Naissance,  }\item[{const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \&}]{p\+\_\+adresse,  }\item[{int}]{p\+\_\+parti\+Politique }\end{DoxyParamCaption})}
+
+
+
+Constructeur avec paramètre Création d\textquotesingle{}un objet \hyperlink{classelections_1_1Candidat}{Candidat} à partir de valeurs passées en paramètres. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+nas} & nas du candidat \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+prenom} & prenom du candidat \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+nom} & nom du candidat \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+date\+Naissance} & date de naissance du candidat \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+adresse} & adresse du candidat \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+parti\+Politique} & parti politique pour lequel le candidat se presente \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+parti politique valide 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+parti\+Politique prend la valeur de p\+\_\+parti\+Politique 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classelections_1_1Candidat_ac93fed3409eb4617620d70a1d031ae89}\label{classelections_1_1Candidat_ac93fed3409eb4617620d70a1d031ae89}} 
+\index{elections\+::\+Candidat@{elections\+::\+Candidat}!clone@{clone}}
+\index{clone@{clone}!elections\+::\+Candidat@{elections\+::\+Candidat}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \hyperlink{classelections_1_1Personne}{Personne} $\ast$ elections\+::\+Candidat\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\hyperlink{classelections_1_1Candidat_ac93fed3409eb4617620d70a1d031ae89}{clone()} permet de faire une copie allouée sur le monceau de l\textquotesingle{}objet courant 
+
+\begin{DoxyReturn}{Returns}
+pointeur de candidat 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classelections_1_1Personne}{elections\+::\+Personne}.
+
+\mbox{\Hypertarget{classelections_1_1Candidat_a150b2e680fbea708f222e5e8bfd823e4}\label{classelections_1_1Candidat_a150b2e680fbea708f222e5e8bfd823e4}} 
+\index{elections\+::\+Candidat@{elections\+::\+Candidat}!req\+Parti\+Politique@{req\+Parti\+Politique}}
+\index{req\+Parti\+Politique@{req\+Parti\+Politique}!elections\+::\+Candidat@{elections\+::\+Candidat}}
+\subsubsection{\texorpdfstring{req\+Parti\+Politique()}{reqPartiPolitique()}}
+{\footnotesize\ttfamily int elections\+::\+Candidat\+::req\+Parti\+Politique (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accesseur sur le parti politique du candidat. 
+
+\begin{DoxyReturn}{Returns}
+le parti politique du candidat 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Candidat_a4b614df7326d8aacdec158b77a6ec406}\label{classelections_1_1Candidat_a4b614df7326d8aacdec158b77a6ec406}} 
+\index{elections\+::\+Candidat@{elections\+::\+Candidat}!req\+Personne\+Formate@{req\+Personne\+Formate}}
+\index{req\+Personne\+Formate@{req\+Personne\+Formate}!elections\+::\+Candidat@{elections\+::\+Candidat}}
+\subsubsection{\texorpdfstring{req\+Personne\+Formate()}{reqPersonneFormate()}}
+{\footnotesize\ttfamily string elections\+::\+Candidat\+::req\+Personne\+Formate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Affiche les informations du candidat sous forme d\textquotesingle{}une chaîne de caractère formatée. 
+
+\begin{DoxyReturn}{Returns}
+les informations sur un candidat 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classelections_1_1Personne_aac1232e61b7cb9743bafba9280041d35}{elections\+::\+Personne}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Candidat_8h}{Candidat.\+h}\item 
+\hyperlink{Candidat_8cpp}{Candidat.\+cpp}\end{DoxyCompactItemize}

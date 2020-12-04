@@ -1,0 +1,81 @@
+\hypertarget{validationFormat_8cpp}{}\section{validation\+Format.\+cpp File Reference}
+\label{validationFormat_8cpp}\index{validation\+Format.\+cpp@{validation\+Format.\+cpp}}
+
+
+Fonctions qui permettent de valider un N\+AS et de valider le format d\textquotesingle{}un fichier.  
+
+
+{\ttfamily \#include \char`\"{}validation\+Format.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+Include dependency graph for validation\+Format.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{validationFormat_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{validationFormat_8cpp_a0ce75a9c4d1aa7f4656d49ef5d206bf3}{util\+::valider\+Nas} (const string \&p\+\_\+nas)
+\begin{DoxyCompactList}\small\item\em Vérifie la validité d\textquotesingle{}un N\+AS. \end{DoxyCompactList}\item 
+bool \hyperlink{validationFormat_8cpp_a694c704b69cfc694c8b7ba5fd4b34772}{util\+::valider\+Format\+Fichier} (istream \&p\+\_\+is)
+\begin{DoxyCompactList}\small\item\em Vérifie la validité du format d\textquotesingle{}un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Fonctions qui permettent de valider un N\+AS et de valider le format d\textquotesingle{}un fichier. 
+
+\begin{DoxyAuthor}{Author}
+Maxime Imbeau 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+12/10/2020 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{validationFormat_8cpp_file_a694c704b69cfc694c8b7ba5fd4b34772}\label{validationFormat_8cpp_file_a694c704b69cfc694c8b7ba5fd4b34772}} 
+\index{validation\+Format.\+cpp@{validation\+Format.\+cpp}!valider\+Format\+Fichier@{valider\+Format\+Fichier}}
+\index{valider\+Format\+Fichier@{valider\+Format\+Fichier}!validation\+Format.\+cpp@{validation\+Format.\+cpp}}
+\subsubsection{\texorpdfstring{valider\+Format\+Fichier()}{validerFormatFichier()}}
+{\footnotesize\ttfamily bool util\+::valider\+Format\+Fichier (\begin{DoxyParamCaption}\item[{istream \&}]{p\+\_\+is }\end{DoxyParamCaption})}
+
+
+
+Vérifie la validité du format d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+is} & qui represente un fichier.\+txt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un booléen indiquant si le format du fichier est valide ou non 
+\end{DoxyReturn}
+\mbox{\Hypertarget{validationFormat_8cpp_file_a0ce75a9c4d1aa7f4656d49ef5d206bf3}\label{validationFormat_8cpp_file_a0ce75a9c4d1aa7f4656d49ef5d206bf3}} 
+\index{validation\+Format.\+cpp@{validation\+Format.\+cpp}!valider\+Nas@{valider\+Nas}}
+\index{valider\+Nas@{valider\+Nas}!validation\+Format.\+cpp@{validation\+Format.\+cpp}}
+\subsubsection{\texorpdfstring{valider\+Nas()}{validerNas()}}
+{\footnotesize\ttfamily bool util\+::valider\+Nas (\begin{DoxyParamCaption}\item[{const string \&}]{p\+\_\+nas }\end{DoxyParamCaption})}
+
+
+
+Vérifie la validité d\textquotesingle{}un N\+AS. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+nas} & qui represente un numero d\textquotesingle{}assurance social (N\+AS) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un booléen indiquant si le N\+AS est valide ou non 
+\end{DoxyReturn}

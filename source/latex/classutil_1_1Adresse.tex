@@ -1,0 +1,238 @@
+\hypertarget{classutil_1_1Adresse}{}\section{util\+:\+:Adresse Class Reference}
+\label{classutil_1_1Adresse}\index{util\+::\+Adresse@{util\+::\+Adresse}}
+
+
+Cette classe sert au maintien et à la manipulation des adresses. La classe \hyperlink{classutil_1_1Adresse}{Adresse} permet d\textquotesingle{}implanter des adresses.  
+
+
+
+
+{\ttfamily \#include $<$Adresse.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classutil_1_1Adresse_a2c646a0226925bb32c4db8463ed887d5}{Adresse} (int p\+\_\+numero\+Civic, const std\+::string \&p\+\_\+nom\+Rue, const std\+::string \&p\+\_\+ville, const std\+::string \&p\+\_\+code\+Postal, const std\+::string \&p\+\_\+province)
+\begin{DoxyCompactList}\small\item\em Constructeur avec paramètres On construit un objet \hyperlink{classutil_1_1Adresse}{Adresse} à partir de valeurs passées en paramètres. \end{DoxyCompactList}\item 
+int \hyperlink{classutil_1_1Adresse_a5b5472020a325014c0296819beba184b}{req\+Numero\+Civic} () const
+\begin{DoxyCompactList}\small\item\em retourne le numero civic de l\textquotesingle{}adresse \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classutil_1_1Adresse_aa6446c6a166a7ef16700ce5098df4337}{req\+Nom\+Rue} () const
+\begin{DoxyCompactList}\small\item\em retourne le nom de la rue de l\textquotesingle{}adresse \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classutil_1_1Adresse_a084353601fe763f34dba9ca03af5abe2}{req\+Ville} () const
+\begin{DoxyCompactList}\small\item\em retourne le nom de la ville de l\textquotesingle{}adresse \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classutil_1_1Adresse_ad4d1a2d82f33ac08b8a647fd479f9edc}{req\+Code\+Postal} () const
+\begin{DoxyCompactList}\small\item\em retourne le code postal de l\textquotesingle{}adresse \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classutil_1_1Adresse_a9f6048ebc5b0e8bf9a329eb8d9ec2de4}{req\+Province} () const
+\begin{DoxyCompactList}\small\item\em retourne le nom de la province de l\textquotesingle{}adresse \end{DoxyCompactList}\item 
+void \hyperlink{classutil_1_1Adresse_ab76bad0bb5679f6b091f1bd3b84c5c1b}{asg\+Adresse} (int p\+\_\+numero\+Civic, const std\+::string \&p\+\_\+nom\+Rue, const std\+::string \&p\+\_\+ville, const std\+::string \&p\+\_\+code\+Postal, const std\+::string \&p\+\_\+province)
+\begin{DoxyCompactList}\small\item\em Assigne une adresse à l\textquotesingle{}objet courant. \end{DoxyCompactList}\item 
+bool \hyperlink{classutil_1_1Adresse_ac622c0ae30e1408c6f5e92e258455c96}{operator==} (const \hyperlink{classutil_1_1Adresse}{Adresse} \&p\+\_\+adresse) const
+\begin{DoxyCompactList}\small\item\em surcharge de l\textquotesingle{}opérateur == \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classutil_1_1Adresse_ac16f05f371142a65c6f81dea5cce1606}{req\+Adresse\+Formate} () const
+\begin{DoxyCompactList}\small\item\em retourne une adresse formatée dans une chaîne de caractères (string) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Cette classe sert au maintien et à la manipulation des adresses. La classe \hyperlink{classutil_1_1Adresse}{Adresse} permet d\textquotesingle{}implanter des adresses. 
+
+\begin{DoxyInvariant}{Invariant}
+de la classe\+: le numero\+Civic doit être positif et les nom\+Rue, ville, code\+Postal et province ne doivent pas être vides 
+\end{DoxyInvariant}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classutil_1_1Adresse_a2c646a0226925bb32c4db8463ed887d5}\label{classutil_1_1Adresse_a2c646a0226925bb32c4db8463ed887d5}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!Adresse@{Adresse}}
+\index{Adresse@{Adresse}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{Adresse()}{Adresse()}}
+{\footnotesize\ttfamily util\+::\+Adresse\+::\+Adresse (\begin{DoxyParamCaption}\item[{int}]{p\+\_\+numero\+Civic,  }\item[{const std\+::string \&}]{p\+\_\+nom\+Rue,  }\item[{const std\+::string \&}]{p\+\_\+ville,  }\item[{const std\+::string \&}]{p\+\_\+code\+Postal,  }\item[{const std\+::string \&}]{p\+\_\+province }\end{DoxyParamCaption})}
+
+
+
+Constructeur avec paramètres On construit un objet \hyperlink{classutil_1_1Adresse}{Adresse} à partir de valeurs passées en paramètres. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+numero\+Civic} & est un entier int qui représente le numero civic de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+nom\+Rue} & est une string qui représente le nom de la rue de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+ville} & est une string qui représente le nom de la ville de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+code\+Postal} & est une string qui représente le code postal de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+province} & est une string qui représente le nom de la province de l\textquotesingle{}adresse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+p\+\_\+numero\+Civic doit être un nombre positif. 
+
+p\+\_\+nom\+Rue doit être non vide. 
+
+p\+\_\+ville doit être non vide. 
+
+p\+\_\+code\+Postal doit être non vide. 
+
+p\+\_\+province doit être non vide. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+numero\+Civic prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+nom\+Rue prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+ville prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+code\+Postal prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+province prend la valeur du paramètre reçu en entrée. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classutil_1_1Adresse_ab76bad0bb5679f6b091f1bd3b84c5c1b}\label{classutil_1_1Adresse_ab76bad0bb5679f6b091f1bd3b84c5c1b}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!asg\+Adresse@{asg\+Adresse}}
+\index{asg\+Adresse@{asg\+Adresse}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{asg\+Adresse()}{asgAdresse()}}
+{\footnotesize\ttfamily void util\+::\+Adresse\+::asg\+Adresse (\begin{DoxyParamCaption}\item[{int}]{p\+\_\+numero\+Civic,  }\item[{const std\+::string \&}]{p\+\_\+nom\+Rue,  }\item[{const std\+::string \&}]{p\+\_\+ville,  }\item[{const std\+::string \&}]{p\+\_\+code\+Postal,  }\item[{const std\+::string \&}]{p\+\_\+province }\end{DoxyParamCaption})}
+
+
+
+Assigne une adresse à l\textquotesingle{}objet courant. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+numero\+Civic} & est un entier int qui représente le numero civic de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+nom\+Rue} & est une string qui représente le nom de la rue de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+ville} & est une string qui représente le nom de la ville de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+code\+Postal} & est une string qui représente le code postal de l\textquotesingle{}adresse \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+province} & est une string qui représente le nom de la province de l\textquotesingle{}adresse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+p\+\_\+numero\+Civic doit être un nombre positif. 
+
+p\+\_\+nom\+Rue doit être un nombre positif. 
+
+p\+\_\+ville doit être un nombre positif. 
+
+p\+\_\+code\+Postal doit être un nombre positif. 
+
+p\+\_\+province doit être un nombre positif. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+numero\+Civic prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+nom\+Rue prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+ville prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+code\+Postal prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+province prend la valeur du paramètre reçu en entrée. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classutil_1_1Adresse_ac622c0ae30e1408c6f5e92e258455c96}\label{classutil_1_1Adresse_ac622c0ae30e1408c6f5e92e258455c96}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!operator==@{operator==}}
+\index{operator==@{operator==}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool util\+::\+Adresse\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classutil_1_1Adresse}{Adresse} \&}]{p\+\_\+adresse }\end{DoxyParamCaption}) const}
+
+
+
+surcharge de l\textquotesingle{}opérateur == 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+adresse} & qui est une adresse valide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un booléen indiquant si deux attributs d\textquotesingle{}une adresse sont égales ou pas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classutil_1_1Adresse_ac16f05f371142a65c6f81dea5cce1606}\label{classutil_1_1Adresse_ac16f05f371142a65c6f81dea5cce1606}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!req\+Adresse\+Formate@{req\+Adresse\+Formate}}
+\index{req\+Adresse\+Formate@{req\+Adresse\+Formate}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{req\+Adresse\+Formate()}{reqAdresseFormate()}}
+{\footnotesize\ttfamily string util\+::\+Adresse\+::req\+Adresse\+Formate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne une adresse formatée dans une chaîne de caractères (string) 
+
+\begin{DoxyReturn}{Returns}
+une adresse formatée dans une chaîne de caractères 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classutil_1_1Adresse_ad4d1a2d82f33ac08b8a647fd479f9edc}\label{classutil_1_1Adresse_ad4d1a2d82f33ac08b8a647fd479f9edc}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!req\+Code\+Postal@{req\+Code\+Postal}}
+\index{req\+Code\+Postal@{req\+Code\+Postal}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{req\+Code\+Postal()}{reqCodePostal()}}
+{\footnotesize\ttfamily const string \& util\+::\+Adresse\+::req\+Code\+Postal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le code postal de l\textquotesingle{}adresse 
+
+\begin{DoxyReturn}{Returns}
+une string qui représente le code postal de l\textquotesingle{}adresse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classutil_1_1Adresse_aa6446c6a166a7ef16700ce5098df4337}\label{classutil_1_1Adresse_aa6446c6a166a7ef16700ce5098df4337}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!req\+Nom\+Rue@{req\+Nom\+Rue}}
+\index{req\+Nom\+Rue@{req\+Nom\+Rue}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{req\+Nom\+Rue()}{reqNomRue()}}
+{\footnotesize\ttfamily const string \& util\+::\+Adresse\+::req\+Nom\+Rue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le nom de la rue de l\textquotesingle{}adresse 
+
+\begin{DoxyReturn}{Returns}
+une string qui représente le nom de la rue de l\textquotesingle{}adresse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classutil_1_1Adresse_a5b5472020a325014c0296819beba184b}\label{classutil_1_1Adresse_a5b5472020a325014c0296819beba184b}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!req\+Numero\+Civic@{req\+Numero\+Civic}}
+\index{req\+Numero\+Civic@{req\+Numero\+Civic}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{req\+Numero\+Civic()}{reqNumeroCivic()}}
+{\footnotesize\ttfamily int util\+::\+Adresse\+::req\+Numero\+Civic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le numero civic de l\textquotesingle{}adresse 
+
+\begin{DoxyReturn}{Returns}
+un entier int qui représente le numero civic de l\textquotesingle{}adresse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classutil_1_1Adresse_a9f6048ebc5b0e8bf9a329eb8d9ec2de4}\label{classutil_1_1Adresse_a9f6048ebc5b0e8bf9a329eb8d9ec2de4}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!req\+Province@{req\+Province}}
+\index{req\+Province@{req\+Province}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{req\+Province()}{reqProvince()}}
+{\footnotesize\ttfamily const string \& util\+::\+Adresse\+::req\+Province (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le nom de la province de l\textquotesingle{}adresse 
+
+\begin{DoxyReturn}{Returns}
+une string qui représente le nom de la province de l\textquotesingle{}adresse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classutil_1_1Adresse_a084353601fe763f34dba9ca03af5abe2}\label{classutil_1_1Adresse_a084353601fe763f34dba9ca03af5abe2}} 
+\index{util\+::\+Adresse@{util\+::\+Adresse}!req\+Ville@{req\+Ville}}
+\index{req\+Ville@{req\+Ville}!util\+::\+Adresse@{util\+::\+Adresse}}
+\subsubsection{\texorpdfstring{req\+Ville()}{reqVille()}}
+{\footnotesize\ttfamily const string \& util\+::\+Adresse\+::req\+Ville (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le nom de la ville de l\textquotesingle{}adresse 
+
+\begin{DoxyReturn}{Returns}
+une string qui représente le nom de la ville de l\textquotesingle{}adresse 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Adresse_8h}{Adresse.\+h}\item 
+\hyperlink{Adresse_8cpp}{Adresse.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,83 @@
+/**
+ * \file Circonscription.cpp
+ * \brief Implantation de la classe Circonscription
+ * \author Maxime Imbeau
+ * \version 0.1
+ * \date 14/1/2020
+ */
+
+#include "Circonscription.h"
+#include <string>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+namespace elections
+{
+/**
+ * \brief Constructeur avec paramètres
+ *        Création d'un objet Circonscription à partir de valeurs passées en paramètres.
+ * \param[in] p_nomCirconscription nom de la circonscription
+ * \param[in] p_deputeElu depute elu sortant
+ * \pre nom de la circonscription doit etre non vide
+ * \post m_nomirconscription prend la valeur de p_circonscription
+ */
+Circonscription::Circonscription(const string& p_nomCirconscription, const elections::Candidat& p_deputeElu) :
+								 m_nomCirconscription(p_nomCirconscription), m_deputeElu(p_deputeElu)
+{
+	PRECONDITION(!p_nomCirconscription.empty());
+
+	POSTCONDITION(m_nomCirconscription == p_nomCirconscription);
+
+	INVARIANTS();
+}
+/**
+ * \brief Accesseur sur le nom de la circonscription
+ * \return le nom de la circonscription
+ */
+const string& Circonscription::reqNomCirconscription() const
+{
+	return m_nomCirconscription;
+}
+/**
+ * \brief Accesseur sur le nom du depute sortant
+ * \return le nom du depute sortant
+ */
+const Candidat& Circonscription::reqDeputeElu() const
+{
+	return m_deputeElu;
+}
+/**
+ * \brief Methode qui permet d’inscrire une personne sur la liste électorale de la circonscription
+ * \param[in] p_nouvelInscrit nouvelle personne qui sera inscrite a la liste electorale
+ */
+void Circonscription::inscrire(const Personne& p_nouvelInscrit)
+{
+	m_vInscrits.push_back(p_nouvelInscrit.clone());
+}
+//const Circonscription& Circonscription::operator=(const Circonscription& p_vInscrits)
+//{
+//}
+/**
+ * \brief Affiche les informations de la circonscription sous forme d'une chaîne de caractère formatée
+ * \return les informations sur une circonscription
+ */
+string Circonscription::reqCirconscriptionFormate() const
+{
+	ostringstream os;
+
+	return os.str();
+}
+/**
+ * \brief Vérifier les invariants de la classe circonscription
+ */
+void Circonscription::verifieInvariant() const
+{
+	INVARIANT(!m_nomCirconscription.empty());
+}
+}// namespace elections
+
+
+
+
+

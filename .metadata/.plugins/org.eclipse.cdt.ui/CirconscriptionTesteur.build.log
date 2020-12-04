@@ -1,0 +1,15 @@
+20:15:35 **** Incremental Build of configuration Debug for project CirconscriptionTesteur ****
+make all 
+Building file: ../CirconscriptionTesteur.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/C++_Shared_Folder/TP3_1/source" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"CirconscriptionTesteur.d" -MT"CirconscriptionTesteur.o" -o "CirconscriptionTesteur.o" "../CirconscriptionTesteur.cpp"
+Finished building: ../CirconscriptionTesteur.cpp
+ 
+Building target: CirconscriptionTesteur
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/C++_Shared_Folder/TP3_1/source/Debug" -o "CirconscriptionTesteur"  ./CirconscriptionTesteur.o   -lsource -lgtest_main -lgtest -lpthread
+Finished building target: CirconscriptionTesteur
+ 
+
+20:15:37 Build Finished (took 2s.343ms)
+

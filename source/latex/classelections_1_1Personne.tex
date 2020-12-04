@@ -1,0 +1,223 @@
+\hypertarget{classelections_1_1Personne}{}\section{elections\+:\+:Personne Class Reference}
+\label{classelections_1_1Personne}\index{elections\+::\+Personne@{elections\+::\+Personne}}
+
+
+Cette classe sert au maintien et à la manipulation des informations sur une personne. La classe \hyperlink{classelections_1_1Personne}{Personne} permet d\textquotesingle{}implanter des personnes.  
+
+
+
+
+{\ttfamily \#include $<$Personne.\+h$>$}
+
+
+
+Inheritance diagram for elections\+:\+:Personne\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{classelections_1_1Personne__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classelections_1_1Personne_a25e4a5ff2a6b2fd79d146510b0d4622f}{Personne} (const std\+::string \&p\+\_\+nas, const std\+::string \&p\+\_\+prenom, const std\+::string \&p\+\_\+nom, const \hyperlink{classutil_1_1Date}{util\+::\+Date} \&p\+\_\+date\+Naissance, const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \&p\+\_\+adresse)
+\begin{DoxyCompactList}\small\item\em constructeur avec paramètres On construit un objet \hyperlink{classelections_1_1Personne}{Personne} à partir de valeurs passées en paramètres. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classelections_1_1Personne_a5797ace33d89a69dcc87420833affa3a}\label{classelections_1_1Personne_a5797ace33d89a69dcc87420833affa3a}} 
+virtual \hyperlink{classelections_1_1Personne}{Personne} $\ast$ {\bfseries clone} () const =0
+\item 
+const std\+::string \& \hyperlink{classelections_1_1Personne_af822cf5097138148a8ecdc4312521743}{req\+Nas} () const
+\begin{DoxyCompactList}\small\item\em retourne le nas d\textquotesingle{}une personne \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classelections_1_1Personne_a308b2c6b55cf3d0f414ba5c19873169f}{req\+Prenom} () const
+\begin{DoxyCompactList}\small\item\em retourne le prenom d\textquotesingle{}une personne \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classelections_1_1Personne_a46cfdb57aa5d46c54b3a8c2860ca2e30}{req\+Nom} () const
+\begin{DoxyCompactList}\small\item\em retourne le nom d\textquotesingle{}une personne \end{DoxyCompactList}\item 
+const \hyperlink{classutil_1_1Date}{util\+::\+Date} \& \hyperlink{classelections_1_1Personne_a32ff2a825ffb56f8159b6b618a8c897d}{req\+Date\+Naissance} () const
+\begin{DoxyCompactList}\small\item\em retourne la date de naissance d\textquotesingle{}une personne \end{DoxyCompactList}\item 
+const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \& \hyperlink{classelections_1_1Personne_a908c8e2362d6b3bbbc6c24f8f7a4e460}{req\+Adresse} () const
+\begin{DoxyCompactList}\small\item\em retourne l\textquotesingle{}adresse d\textquotesingle{}une personne \end{DoxyCompactList}\item 
+void \hyperlink{classelections_1_1Personne_a1aeeb0241c9065cb43a0393f7dc1d26c}{asg\+Nouvelle\+Adresse} (const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \&p\+\_\+adresse)
+\begin{DoxyCompactList}\small\item\em Assigne une \hyperlink{classelections_1_1Personne}{Personne} à l\textquotesingle{}objet courant. \end{DoxyCompactList}\item 
+bool \hyperlink{classelections_1_1Personne_a991bb78bcf3a7ea7574d7d991c7595d9}{operator==} (const \hyperlink{classelections_1_1Personne}{Personne} \&p\+\_\+personne) const
+\begin{DoxyCompactList}\small\item\em surcharge de l\textquotesingle{}opérateur == \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{classelections_1_1Personne_aac1232e61b7cb9743bafba9280041d35}{req\+Personne\+Formate} () const =0
+\begin{DoxyCompactList}\small\item\em retourne une personne formatée dans une chaîne de caractères (string) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Cette classe sert au maintien et à la manipulation des informations sur une personne. La classe \hyperlink{classelections_1_1Personne}{Personne} permet d\textquotesingle{}implanter des personnes. 
+
+\begin{DoxyInvariant}{Invariant}
+de la classe\+: le nas doit etre valide, le prenom et le nom non vide 
+\end{DoxyInvariant}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classelections_1_1Personne_a25e4a5ff2a6b2fd79d146510b0d4622f}\label{classelections_1_1Personne_a25e4a5ff2a6b2fd79d146510b0d4622f}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!Personne@{Personne}}
+\index{Personne@{Personne}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{Personne()}{Personne()}}
+{\footnotesize\ttfamily elections\+::\+Personne\+::\+Personne (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+nas,  }\item[{const std\+::string \&}]{p\+\_\+prenom,  }\item[{const std\+::string \&}]{p\+\_\+nom,  }\item[{const \hyperlink{classutil_1_1Date}{util\+::\+Date} \&}]{p\+\_\+date\+Naissance,  }\item[{const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \&}]{p\+\_\+adresse }\end{DoxyParamCaption})}
+
+
+
+constructeur avec paramètres On construit un objet \hyperlink{classelections_1_1Personne}{Personne} à partir de valeurs passées en paramètres. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+nas} & est une string qui représente le nas d\textquotesingle{}une personne \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+prenom} & est une string qui représente le prenom d\textquotesingle{}une personne \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+nom} & est une string qui représente le nom d\textquotesingle{}une personne \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+date\+Naissance} & est un objet Date qui représente la date de naissance d\textquotesingle{}une personne \\
+\hline
+\mbox{\tt in}  & {\em p\+\_\+adresse} & est un objet Adresse qui représente l\textquotesingle{}adresse d\textquotesingle{}une personne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+p\+\_\+nas doit être un nas valide. 
+
+p\+\_\+prenom doit être non vide. 
+
+p\+\_\+nom doit être non vide. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+nas prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+prenom prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+nom prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+date\+Naissance prend la valeur du paramètre reçu en entrée. 
+
+m\+\_\+adresse prend la valeur du paramètre reçu en entrée. 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classelections_1_1Personne_a1aeeb0241c9065cb43a0393f7dc1d26c}\label{classelections_1_1Personne_a1aeeb0241c9065cb43a0393f7dc1d26c}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!asg\+Nouvelle\+Adresse@{asg\+Nouvelle\+Adresse}}
+\index{asg\+Nouvelle\+Adresse@{asg\+Nouvelle\+Adresse}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{asg\+Nouvelle\+Adresse()}{asgNouvelleAdresse()}}
+{\footnotesize\ttfamily void elections\+::\+Personne\+::asg\+Nouvelle\+Adresse (\begin{DoxyParamCaption}\item[{const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \&}]{p\+\_\+adresse }\end{DoxyParamCaption})}
+
+
+
+Assigne une \hyperlink{classelections_1_1Personne}{Personne} à l\textquotesingle{}objet courant. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+adresse} & est un objet Adresse qui représente l\textquotesingle{}adresse d\textquotesingle{}une personne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+adresse prend la valeur du paramètre reçu en entrée. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classelections_1_1Personne_a991bb78bcf3a7ea7574d7d991c7595d9}\label{classelections_1_1Personne_a991bb78bcf3a7ea7574d7d991c7595d9}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!operator==@{operator==}}
+\index{operator==@{operator==}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool elections\+::\+Personne\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{classelections_1_1Personne}{Personne} \&}]{p\+\_\+personne }\end{DoxyParamCaption}) const}
+
+
+
+surcharge de l\textquotesingle{}opérateur == 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p\+\_\+personne} & qui est une personne valide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un booléen indiquant si les attributs d\textquotesingle{}une personne sont égales ou pas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Personne_a908c8e2362d6b3bbbc6c24f8f7a4e460}\label{classelections_1_1Personne_a908c8e2362d6b3bbbc6c24f8f7a4e460}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!req\+Adresse@{req\+Adresse}}
+\index{req\+Adresse@{req\+Adresse}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{req\+Adresse()}{reqAdresse()}}
+{\footnotesize\ttfamily const \hyperlink{classutil_1_1Adresse}{util\+::\+Adresse} \& elections\+::\+Personne\+::req\+Adresse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne l\textquotesingle{}adresse d\textquotesingle{}une personne 
+
+\begin{DoxyReturn}{Returns}
+p\+\_\+adresse est un objet Adresse qui représente l\textquotesingle{}adresse d\textquotesingle{}une personne 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Personne_a32ff2a825ffb56f8159b6b618a8c897d}\label{classelections_1_1Personne_a32ff2a825ffb56f8159b6b618a8c897d}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!req\+Date\+Naissance@{req\+Date\+Naissance}}
+\index{req\+Date\+Naissance@{req\+Date\+Naissance}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{req\+Date\+Naissance()}{reqDateNaissance()}}
+{\footnotesize\ttfamily const \hyperlink{classutil_1_1Date}{util\+::\+Date} \& elections\+::\+Personne\+::req\+Date\+Naissance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne la date de naissance d\textquotesingle{}une personne 
+
+\begin{DoxyReturn}{Returns}
+p\+\_\+date\+Naissance est un objet Date qui représente la date de naissance d\textquotesingle{}une personne 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Personne_af822cf5097138148a8ecdc4312521743}\label{classelections_1_1Personne_af822cf5097138148a8ecdc4312521743}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!req\+Nas@{req\+Nas}}
+\index{req\+Nas@{req\+Nas}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{req\+Nas()}{reqNas()}}
+{\footnotesize\ttfamily const string \& elections\+::\+Personne\+::req\+Nas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le nas d\textquotesingle{}une personne 
+
+\begin{DoxyReturn}{Returns}
+p\+\_\+nas est une string qui représente le nas d\textquotesingle{}une personne 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Personne_a46cfdb57aa5d46c54b3a8c2860ca2e30}\label{classelections_1_1Personne_a46cfdb57aa5d46c54b3a8c2860ca2e30}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!req\+Nom@{req\+Nom}}
+\index{req\+Nom@{req\+Nom}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{req\+Nom()}{reqNom()}}
+{\footnotesize\ttfamily const string \& elections\+::\+Personne\+::req\+Nom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le nom d\textquotesingle{}une personne 
+
+\begin{DoxyReturn}{Returns}
+p\+\_\+nom est une string qui représente le nom d\textquotesingle{}une personne 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classelections_1_1Personne_aac1232e61b7cb9743bafba9280041d35}\label{classelections_1_1Personne_aac1232e61b7cb9743bafba9280041d35}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!req\+Personne\+Formate@{req\+Personne\+Formate}}
+\index{req\+Personne\+Formate@{req\+Personne\+Formate}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{req\+Personne\+Formate()}{reqPersonneFormate()}}
+{\footnotesize\ttfamily string elections\+::\+Personne\+::req\+Personne\+Formate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+retourne une personne formatée dans une chaîne de caractères (string) 
+
+\begin{DoxyReturn}{Returns}
+une personne formatée dans une chaîne de caractères 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classelections_1_1Candidat_a4b614df7326d8aacdec158b77a6ec406}{elections\+::\+Candidat}, and \hyperlink{classelections_1_1Electeur_ac233f4fb12d9267374c8e66864d89689}{elections\+::\+Electeur}.
+
+\mbox{\Hypertarget{classelections_1_1Personne_a308b2c6b55cf3d0f414ba5c19873169f}\label{classelections_1_1Personne_a308b2c6b55cf3d0f414ba5c19873169f}} 
+\index{elections\+::\+Personne@{elections\+::\+Personne}!req\+Prenom@{req\+Prenom}}
+\index{req\+Prenom@{req\+Prenom}!elections\+::\+Personne@{elections\+::\+Personne}}
+\subsubsection{\texorpdfstring{req\+Prenom()}{reqPrenom()}}
+{\footnotesize\ttfamily const string \& elections\+::\+Personne\+::req\+Prenom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+retourne le prenom d\textquotesingle{}une personne 
+
+\begin{DoxyReturn}{Returns}
+p\+\_\+prenom est une string qui représente le prenom d\textquotesingle{}une personne 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Personne_8h}{Personne.\+h}\item 
+\hyperlink{Personne_8cpp}{Personne.\+cpp}\end{DoxyCompactItemize}
