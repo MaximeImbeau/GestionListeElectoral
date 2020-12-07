@@ -1,156 +1,232 @@
 /**
  * \file validationFormat.cpp
- * \brief Fonctions qui permettent de valider un NAS et de valider le format d'un fichier
- * \author Maxime Imbeau
- * \version 0.1
- * \date 12/10/2020
+ * \brief Implantation de la fonctions de validation de format
+ * \date 2020-10-11
+ * \author Nicholas Rompré St-Yves
  */
 
-#include "validationFormat.h"
 #include <iostream>
 #include <string>
-#include <sstream>
-#include <cctype>
-#include <stdlib.h>
+#include <ctype.h>
 #include <fstream>
-
+#include "validationFormat.h"
+#include <assert.h>
+#include "Date.h"
+#include "Adresse.h"
+#include "ContratException.h"
 
 using namespace std;
+
+
 namespace util
 {
 /**
- * \brief Vérifie la validité d'un NAS
- * \param[in] p_nas qui represente un numero d'assurance social (NAS)
- * \return un booléen indiquant si le NAS est valide ou non
+ * \brief Vérifie si le NAS est valide ou non
+ * \param[in] p_nas Numéro d'assurance sociale (NAS) (string)
+ * \return Si le NAS est valide ou non (bool).
  */
-bool validerNas(const string& p_nas)
+bool validerNas(const std::string& p_nas)
 {
-	int tableau_verif[MAX] = {1,2,1,2,1,2,1,2,1};
-	if (p_nas.length() == 11)
-	{
-		int number_index = 0;
-		int somme = 0;
-		for (int i = 0; i < 11; i++)
-		{
-			if (i == 3 || i == 7)
-			{
-				i++;
+	int Arr[] = { 1, 2, 1, 2, 1, 2, 1, 2, 1 };
+	int sommeChiffresNas = 0;
+	int a;
+	bool b;
+	int c;
+	int d;
+	int e;
+	int x;
+	string y;
+	int z;
+	const int zeroASCII = 48;
+	bool nasValid = false;
+	bool separatorsValid = true;
+	int digitCounter = 0;
+	for (string::size_type i = 0; i < p_nas.size(); i++) {
+		a = p_nas[i];
+		b = isdigit(a);
+		if (b) {
+			c = a - zeroASCII;
+			x = c * Arr[digitCounter];
+			if (x >= 10) {
+				y = to_string(x);
+				z = 0;
+				for (string::size_type j = 0; j < y.size(); j++) {
+					z += y[j] - zeroASCII;
+				}
+				x = z;
 			}
-			int value = stoi(p_nas.substr(i,1));
-			if ((value * tableau_verif[number_index]) > 9)
-			{
-				int multi = value * tableau_verif[number_index];
-				string str= to_string(multi);
-				somme += stoi(str.substr(0,1)) + stoi(str.substr(1,1));
-			}
-			else
-			{
-				somme += value * tableau_verif[number_index];
-			}
-			number_index++;
+			sommeChiffresNas += x;
+			digitCounter += 1;
 		}
-		return somme % 10 == 0;
 	}
-	return false;
+	d = p_nas[3];
+	e = p_nas[7];
+	if ((d != 32) and (d != 45)) {
+		separatorsValid = false;
+	}
+	if ((e != 32) and (e != 45)) {
+		separatorsValid = false;
+	}
+	if (((sommeChiffresNas % 10) == 0) and (digitCounter == 9)
+			and (separatorsValid)) {
+		nasValid = true;
+	}
+	return nasValid;
 }
-/**
- * \brief Vérifie la validité du format d'un fichier
- * \param[in] p_is qui represente un fichier.txt
- * \return un booléen indiquant si le format du fichier est valide ou non
- */
-bool validerFormatFichier(istream& p_is)
-{
-	if(!p_is)
-	{
-		return false;
-	}
-	string p_isLineIterator;
-	string parti[nb_parti] = {"BLOC_QUEBECOIS", "CONSERVATEUR", "INDEPENDANT", "LIBERAL", "NOUVEAU_PARTI_DEMOCRATIQUE"};
-	bool isParti = false;
-	//circonscription
-	getline(p_is, p_isLineIterator);
-	if (p_isLineIterator.compare("") != 0)
-	{
-		//parti
-		getline(p_is, p_isLineIterator);
-		for (int i = 0; i < nb_parti; i++)
-		{
-			if (p_isLineIterator.compare(parti[i]) == true)
-			{
-				isParti = true;
-				break;
-			}
-		}
-		if (isParti == false)
-			return false;
-		//NAS
-		getline(p_is, p_isLineIterator);
-		if (!validerNas(p_isLineIterator))
-			return false;
-		//prenom
-		getline(p_is, p_isLineIterator);
-		if (p_isLineIterator.compare("") == 0)
-			return false;
-		//nom
-		getline(p_is, p_isLineIterator);
-		if (p_isLineIterator.compare("") == 0)
-			return false;
-		//date
-		getline(p_is, p_isLineIterator);
-		if (p_isLineIterator.compare("") == 0)
-			return false;
-		//address
-		getline(p_is, p_isLineIterator);
-		if (p_isLineIterator.compare("") == 0)
-			return false;
 
-		while(getline(p_is, p_isLineIterator))
-		{
-			isParti = false;
-			for (int j = 0; j < nb_parti; j++)
-			{
-				if (p_isLineIterator.compare(parti[j]) == 0)
-				{
-					isParti = true;
-				}
-			}
-			bool nas = false;
-			if (!isParti)
-			{
-				nas = validerNas(p_isLineIterator);
-			}
-			if(isParti || nas)
-			{
-				if(!nas)
-				{
-					//NAS
-					getline(p_is, p_isLineIterator);
-					if(!validerNas(p_isLineIterator))
-						return false;
-				}
-				//prenom
-				getline(p_is, p_isLineIterator);
-				if(p_isLineIterator.compare("") == 0)
-					return false;
-				//nom
-				getline(p_is, p_isLineIterator);
-				if(p_isLineIterator.compare("") == 0)
-					return false;
-				//date
-				getline(p_is, p_isLineIterator);
-				if(p_isLineIterator.compare("") == 0)
-					return false;
-				//address
-				getline(p_is, p_isLineIterator);
-				if(p_isLineIterator.compare("") == 0)
-					return false;
-			}
-			else
-			{
-				return false;
-			}
-		}
+/**
+ * \brief Saisie et validation du NAS (string)
+ * \return NAS (string)
+ */
+string entrerNas()
+{
+	try
+	{
+		cout << "Entrez le numero d'assurance sociale : ";
+		string nas;
+		char buffer[256];
+		cin.getline(buffer, 256);
+		nas = buffer;
+		assert(validerNas(nas));
+		return nas;
+	}catch (PreconditionException &erreur)
+	{
+		cout << erreur.reqTexteException();
 	}
-	return true;
 }
-}// namespace util
+
+/**
+ * \brief Saisie et validation d'un paramètre string (string)
+ * \return parametreString(string)
+ */
+string entrerParametreString()
+{
+	try
+	{
+		string parametreString;
+		char buffer[256];
+		cin.getline(buffer, 256);
+		parametreString = buffer;
+		return parametreString;
+	}catch (PreconditionException &erreur)
+	{
+		cout << erreur.reqTexteException();
+	}
+}
+
+/**
+ * \brief Saisie et validation d'un prenom (string)
+ * \return prenom (string)
+ */
+string entrerPrenom()
+{
+	try
+	{
+		string prenom;
+		cout << "Entrez le prenom : ";
+		prenom = entrerParametreString();
+		return prenom;
+	}catch (PreconditionException &erreur)
+	{
+		cout << erreur.reqTexteException();
+	}
+}
+
+/**
+ * \brief Saisie et validation d'un nom (string)
+ * \return nom (string)
+ */
+string entrerNom()
+{
+	try
+	{
+		string nom;
+		cout << "Entrez le nom : ";
+		nom = entrerParametreString();
+		return nom;
+	}catch (PreconditionException &erreur)
+	{
+		cout << erreur.reqTexteException();
+	}
+}
+
+/**
+ * \brief Saisie et validation d'une date de naissance (Date)
+ * \return date de naissance (Date)
+ */
+util::Date entrerDateNaissance()
+{
+	try
+	{
+		long jour;
+		long mois;
+		long annee;
+		cout << "Veuillez entrer sa date de naissance." << endl;;
+		cout << "Le jour [1..31]: ";
+		cin >> jour;
+		cout << "Le mois [1..12]: ";
+		cin >> mois;
+		cout << "L'annee [1970..2037]: ";
+		cin >> annee;
+		assert(util::Date::validerDate(jour, mois, annee));
+		return util::Date (jour, mois, annee);
+	}catch (PreconditionException &erreur)
+	{
+		cout << erreur.reqTexteException();
+	}
+}
+
+/**
+ * \brief Saisie et validation d'une adresse (Date)
+ * \return adresse (Adresse)
+ */
+util::Adresse entrerAdresse()
+{
+	try
+	{
+		unsigned int numeroCivic;
+		string nomRue;
+		string ville;
+		string codePostal;
+		string province;
+
+		cout << "No de rue: ";
+		cin >> numeroCivic;
+		assert(numeroCivic > 0);
+		cin.ignore();
+		cout << "Rue : ";
+		nomRue = entrerParametreString();
+		cout << "Ville : ";
+		ville = entrerParametreString();
+		cout << "Code postal : ";
+		codePostal = entrerParametreString();
+		cout << "Province : ";
+		province = entrerParametreString();
+		return util::Adresse (numeroCivic, nomRue, ville, codePostal, province);
+	}catch (PreconditionException &erreur)
+	{
+		cout << erreur.reqTexteException();
+	}
+}
+
+/**
+ * \brief Saisie et validation d'un partiPolitique (int)
+ * \return partiPolitique (int)
+ */
+int entrerPartiPolitique()
+{
+	try
+	{
+		int partiPolitique;
+		cout << "Choisissez un parti:" << endl;
+		cout << "0:BLOC_QUEBECOIS, 1:CONSERVATEUR,2:INDEPENDANT,3:LIBERAL,4:NOUVEAU_PARTI_DEMOCRATIQUE" << endl;
+		cin >> partiPolitique;
+		assert(partiPolitique <= 4);
+		assert(partiPolitique >= 0);
+		return partiPolitique;
+	}catch (PreconditionException &erreur)
+	{
+		cout << erreur.reqTexteException();
+	}
+}
+} //Fin namespace util

@@ -1,23 +1,26 @@
 /**
  * \file validationFormat.h
- * \brief Fichier qui contient l'interface du fichier de validation d'une NAS et du format d'un fichier.
- * \author Maxime Imbeau
- * \version 0.1
- * \date 12/10/2020
+ * \brief Fichier qui contient l'interface de fonctions de validation de format
+ * \date 2020-10-11
+ * \author Nicholas Rompré St-Yves
  */
 
 #ifndef VALIDATIONFORMAT_H_
 #define VALIDATIONFORMAT_H_
 
-#include <string>
+#include "Adresse.h"
+#include "Date.h"
 
 namespace util
 {
-const int MAX = 11;
-const int nb_parti = 5;
-
-bool validerNas(const std::string& p_nas);
-bool validerFormatFichier(std::istream& p_is);
-}// namespace util
+	bool validerNas(const std::string& p_nas);
+	std::string entrerNas();
+	std::string entrerParametreString();
+	std::string entrerPrenom();
+	std::string entrerNom();
+	util::Date entrerDateNaissance();
+	util::Adresse entrerAdresse();
+	int entrerPartiPolitique();
+} // namespace util
 
 #endif /* VALIDATIONFORMAT_H_ */
