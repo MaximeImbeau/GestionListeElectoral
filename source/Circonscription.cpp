@@ -57,6 +57,10 @@ const Candidat& Circonscription::reqDeputeElu() const
 {
 	return m_deputeElu;
 }
+/**
+ * \brief Verifie si une personne est deja inscrite dans la circonscription
+ * \return True si la personne est sur la liste, False sinon
+ */
 bool Circonscription::personneEstDejaPresente(const std::string& p_nas) const
 {
 	for(vector<Personne*>::const_iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
@@ -87,7 +91,7 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit)
 }
 /**
  * \brief Methode qui permet de desinscrire une personne sur la liste électorale de la circonscription
- * \param[in] p_nas
+ * \param[in] p_nas d’une personne sur la liste electoral
  */
 void Circonscription::desinscrire(const string& p_nas)
 {
