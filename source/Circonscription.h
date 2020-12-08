@@ -28,7 +28,9 @@ public:
 	~Circonscription();
 	const std::string& reqNomCirconscription() const;
 	const elections::Candidat& reqDeputeElu() const;
+	bool personneEstDejaPresente(const std::string& p_nas) const;
 	void inscrire(const Personne& p_nouvelInscrit);
+	void desinscrire(const std::string& p_nas);
 	Circonscription(const Circonscription& p_circonscription);
 	const Circonscription& operator=(const Circonscription& p_circonscription);
 	std::string reqCirconscriptionFormate() const;

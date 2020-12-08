@@ -35,10 +35,9 @@ Circonscription::Circonscription(const string& p_nomCirconscription, const elect
  */
 Circonscription::~Circonscription()
 {
-	for(Personne* personne : m_vInscrits)
+	for(std::vector<Personne*>::const_iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
 	{
-		delete personne;
-		personne = nullptr;
+		delete *iter;
 	}
 	m_vInscrits.clear();
 }
@@ -58,15 +57,48 @@ const Candidat& Circonscription::reqDeputeElu() const
 {
 	return m_deputeElu;
 }
+bool Circonscription::personneEstDejaPresente(const std::string& p_nas) const
+{
+	for(vector<Personne*>::const_iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
+	{
+		if((*iter)->reqNas().compare(p_nas) == 0)
+		{
+			return true;
+		}
+	}
+	return false;
+}
 /**
  * \brief Methode qui permet d’inscrire une personne sur la liste électorale de la circonscription
  * \param[in] p_nouvelInscrit nouvelle personne qui sera inscrite a la liste electorale
  */
 void Circonscription::inscrire(const Personne& p_nouvelInscrit)
 {
+	if(!personneEstDejaPresente(p_nouvelInscrit.reqNas()))
+	{
 	m_vInscrits.push_back(p_nouvelInscrit.clone());
+	}
+//	else
+//	{
+//		throw PersonneDejaPresenteException(nouvelInscrit.reqPersonneFormate());
+//	}
 
 	INVARIANTS();
+}
+/**
+ * \brief Methode qui permet de desinscrire une personne sur la liste électorale de la circonscription
+ * \param[in] p_nas
+ */
+void Circonscription::desinscrire(const string& p_nas)
+{
+	for(vector<Personne*>::const_iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
+	{
+		if(personneEstDejaPresente(p_nas))
+		{
+			delete *iter;
+			m_vInscrits.erase(iter);
+		}
+	}
 }
 /**
  * \brief Constructeur copie
@@ -76,9 +108,9 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit)
 Circonscription::Circonscription(const Circonscription& p_circonscription) :
 		                         m_nomCirconscription(p_circonscription.m_nomCirconscription), m_deputeElu(p_circonscription.m_deputeElu)
 {
-	for(Personne* personne : p_circonscription.m_vInscrits)
+	for(std::vector<Personne*>::const_iterator iter = p_circonscription.m_vInscrits.begin(); iter != p_circonscription.m_vInscrits.end(); iter++)
 	{
-		inscrire(*personne);
+		inscrire(**iter);
 	}
 	INVARIANTS();
 }
@@ -93,10 +125,9 @@ const Circonscription& Circonscription::operator=(const Circonscription& p_circo
 	{
 		m_nomCirconscription = p_circonscription.m_nomCirconscription;
 		m_deputeElu = p_circonscription.m_deputeElu;
-		for(Personne* personne : m_vInscrits)
+		for(std::vector<Personne*>::const_iterator iter = p_circonscription.m_vInscrits.begin(); iter != p_circonscription.m_vInscrits.end(); iter++)
 		{
-			delete personne;
-			personne = nullptr;
+			delete *iter;
 		}
 		m_vInscrits = p_circonscription.m_vInscrits;
     }
@@ -116,17 +147,17 @@ string Circonscription::reqCirconscriptionFormate() const
 	os << endl;
 	os << "Liste des inscrits :" << endl;
 	os << endl;
-	for(Personne* personne : m_vInscrits)
+	for(std::vector<Personne*>::const_iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
 	{
-		if(dynamic_cast<Electeur*>(personne))
+		if(dynamic_cast<Electeur*>(*iter))
 		{
-			personne = dynamic_cast<Electeur*>(personne);
-			os << personne->reqPersonneFormate() << endl;
+			Electeur* electeur = dynamic_cast<Electeur*>(*iter);
+			os << electeur->reqPersonneFormate() << endl;
 		}
-		if(dynamic_cast<Candidat*>(personne))
+		if(dynamic_cast<Candidat*>(*iter))
 		{
-			personne = dynamic_cast<Candidat*>(personne);
-			os << personne->reqPersonneFormate() << endl;
+			Candidat* candidat = dynamic_cast<Candidat*>(*iter);
+			os << candidat->reqPersonneFormate() << endl;
 		}
 	}
 	return os.str();
@@ -138,7 +169,4 @@ void Circonscription::verifieInvariant() const
 {
 	INVARIANT(!m_nomCirconscription.empty());
 }
-}// namespace elections
-
-
-
+} // namespace elections
