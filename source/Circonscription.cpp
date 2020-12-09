@@ -35,7 +35,7 @@ Circonscription::Circonscription(const string& p_nomCirconscription, const elect
  */
 Circonscription::~Circonscription()
 {
-	for(std::vector<Personne*>::const_iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
+	for(std::vector<Personne*>::iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
 	{
 		delete *iter;
 	}
@@ -82,10 +82,10 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit)
 	{
 		m_vInscrits.push_back(p_nouvelInscrit.clone());
 	}
-	else
-	{
-		throw PersonneDejaPresentException(p_nouvelInscrit.reqPersonneFormate());
-	}
+//	else
+//	{
+//		throw PersonneDejaPresentException(p_nouvelInscrit.reqPersonneFormate());
+//	}
 	INVARIANTS();
 }
 /**
@@ -94,7 +94,7 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit)
  */
 void Circonscription::desinscrire(const string& p_nas)
 {
-	for(vector<Personne*>::const_iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
+	for(vector<Personne*>::iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
 	{
 		if(personneEstDejaPresente(p_nas))
 		{
@@ -159,13 +159,13 @@ string Circonscription::reqCirconscriptionFormate() const
 	{
 		if(dynamic_cast<Electeur*>(*iter))
 		{
-			Electeur* electeur = dynamic_cast<Electeur*>(*iter);
-			os << electeur->reqPersonneFormate() << endl;
+			Electeur* personne = dynamic_cast<Electeur*>(*iter);
+			os << personne->reqPersonneFormate() << endl;
 		}
 		if(dynamic_cast<Candidat*>(*iter))
 		{
-			Candidat* candidat = dynamic_cast<Candidat*>(*iter);
-			os << candidat->reqPersonneFormate() << endl;
+			Candidat* personne = dynamic_cast<Candidat*>(*iter);
+			os << personne->reqPersonneFormate() << endl;
 		}
 	}
 	return os.str();

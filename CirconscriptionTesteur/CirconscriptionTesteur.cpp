@@ -44,16 +44,17 @@ public:
                                             util::Adresse(54, "Laurier", "Quebec", "G7A 5T9", "Quebec"), 1)),
 		                   electeur1("295 057 723", "Max", "Imbeau", util::Date(20, 9, 1998),
 		                		     util::Adresse(54, "Laurier", "Quebec", "G7A 5T9", "Quebec")),
-					       candidat1("295 057 723", "Marie", "Gosselin", util::Date(9, 10, 1997),
+						   electeur2("409 772 563", "Jo", "Blo", util::Date(21, 10, 1998),
+								     util::Adresse(54, "Commodore", "Levis", "GTA 5T9", "Quebec")),
+					       candidat1("046 454 286", "Marie", "Gosselin", util::Date(9, 10, 1997),
 					    		     util::Adresse(60, "Notre-Dame", "Montreal", "H1A 5H7", "Quebec"), 1)
 			{
 				circonscription1.inscrire(electeur1);
 				circonscription1.inscrire(candidat1);
-				m_vInscrits.push_back(&electeur1);
-				m_vInscrits.push_back(&candidat1);
 			};
 			Circonscription circonscription1;
 			Electeur electeur1;
+			Electeur electeur2;
 			Candidat candidat1;
 			std::vector<Personne*> m_vInscrits;
 };
@@ -76,7 +77,17 @@ TEST_F(uneCirconscription, reqDeputeElu)
 	ASSERT_EQ(Candidat("295 057 723", "Max", "Imbeau", util::Date(20, 9, 1998),
 	          util::Adresse(54, "Laurier", "Quebec", "G7A 5T9", "Quebec"), 1), circonscription1.reqDeputeElu());
 }
-
+/**
+ * \brief  Test de la méthode bool personneEstDejaPresente(const std::string& p_nas)
+ *        cas valide:
+ *   		On parcourt la liste electoral et on verifie que la methode nous retourne vrai si la personne est presente
+ *        cas invalide:
+ *          Aucun d'identifié
+ */
+TEST_F(uneCirconscription, testPersonneEstDejaPresente)
+{
+	EXPECT_TRUE(circonscription1.personneEstDejaPresente("295 057 723"));
+}
 /**
  * \brief  Test de la méthode inscrire(const Personne& p_nouvelInscrit)
  *        cas valide:
@@ -88,7 +99,7 @@ TEST_F(uneCirconscription, testInscrire)
 
 {
 	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
-    circonscription1.inscrire(electeur1);
+    circonscription1.inscrire(electeur2);
     EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
 }
 /**
@@ -98,14 +109,13 @@ TEST_F(uneCirconscription, testInscrire)
  *        cas invalide:
  *          Aucun d'identifié
  */
-//TEST_F(uneCirconscription, testDesinscrire)
-//
-//{
-//	circonscription1.inscrire(electeur1);
-//	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
-//    circonscription1.desinscrire(electeur1.reqNas());
-//    EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
-//}
+TEST_F(uneCirconscription, testDesinscrire)
+
+{
+	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
+    circonscription1.desinscrire(electeur1.reqNas());
+    EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
+}
 /**
  * \brief Test du constructeur copie
  * 		  Cas valides: Création d'un objet Circonscription et vérification de l'assignation de tous les attributs
@@ -131,19 +141,9 @@ TEST_F(uneCirconscription, reqCirconscriptionFormate)
 	os << circonscription1.reqDeputeElu().reqPersonneFormate() << endl;
 	os << endl;
 	os << "Liste des inscrits :" << endl;
-	for(Personne* personne : m_vInscrits)
-	{
-		if(dynamic_cast<Electeur*>(personne))
-		{
-		personne = dynamic_cast<Electeur*>(personne);
-		os << personne->reqPersonneFormate() << endl;
-		}
-		if(dynamic_cast<Candidat*>(personne))
-		{
-		personne = dynamic_cast<Candidat*>(personne);
-		os << personne->reqPersonneFormate() << endl;
-		}
-	}
+	os << endl;
+	os << electeur1.reqPersonneFormate() << endl;
+	os << candidat1.reqPersonneFormate() << endl;
 	ASSERT_EQ(os.str(), circonscription1.reqCirconscriptionFormate());
 }
 /**
