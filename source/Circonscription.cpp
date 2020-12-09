@@ -5,9 +5,9 @@
  * \version 0.1
  * \date 14/1/2020
  */
-//Test
 #include "Circonscription.h"
 #include "Electeur.h"
+#include "PersonneException.h"
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -80,13 +80,12 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit)
 {
 	if(!personneEstDejaPresente(p_nouvelInscrit.reqNas()))
 	{
-	m_vInscrits.push_back(p_nouvelInscrit.clone());
+		m_vInscrits.push_back(p_nouvelInscrit.clone());
 	}
-//	else
-//	{
-//		throw PersonneDejaPresenteException(nouvelInscrit.reqPersonneFormate());
-//	}
-
+	else
+	{
+		throw PersonneDejaPresentException(p_nouvelInscrit.reqPersonneFormate());
+	}
 	INVARIANTS();
 }
 /**
@@ -102,7 +101,12 @@ void Circonscription::desinscrire(const string& p_nas)
 			delete *iter;
 			m_vInscrits.erase(iter);
 		}
+		else
+		{
+			throw PersonneAbsenteException("Ce NAS " + p_nas + " n’est pas inscrit a la liste electoral");
+		}
 	}
+	INVARIANTS();
 }
 /**
  * \brief Constructeur copie

@@ -76,6 +76,7 @@ TEST_F(uneCirconscription, reqDeputeElu)
 	ASSERT_EQ(Candidat("295 057 723", "Max", "Imbeau", util::Date(20, 9, 1998),
 	          util::Adresse(54, "Laurier", "Quebec", "G7A 5T9", "Quebec"), 1), circonscription1.reqDeputeElu());
 }
+
 /**
  * \brief  Test de la méthode inscrire(const Personne& p_nouvelInscrit)
  *        cas valide:
@@ -90,6 +91,21 @@ TEST_F(uneCirconscription, testInscrire)
     circonscription1.inscrire(electeur1);
     EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
 }
+/**
+ * \brief  Test de la méthode desinscrire(const std::string& p_nas)
+ *        cas valide:
+ *   		desinscrire: un electeur a bien ete desinscrit de la liste electoral
+ *        cas invalide:
+ *          Aucun d'identifié
+ */
+//TEST_F(uneCirconscription, testDesinscrire)
+//
+//{
+//	circonscription1.inscrire(electeur1);
+//	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
+//    circonscription1.desinscrire(electeur1.reqNas());
+//    EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
+//}
 /**
  * \brief Test du constructeur copie
  * 		  Cas valides: Création d'un objet Circonscription et vérification de l'assignation de tous les attributs

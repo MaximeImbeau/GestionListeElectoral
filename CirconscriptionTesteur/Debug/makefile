@@ -43,7 +43,7 @@ all: CirconscriptionTesteur
 CirconscriptionTesteur: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/mnt/hgfs/C++_Shared_Folder/TP3_1/source/Debug" -o "CirconscriptionTesteur" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/home/etudiant/git/111186939_tp4/source/Debug" -o "CirconscriptionTesteur" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
