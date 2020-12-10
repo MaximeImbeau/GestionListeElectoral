@@ -1,10 +1,11 @@
-/*
- * EmployeException.h
- *
- *  Created on: 2020-12-05
- *      Author: etudiant
+/**
+ * \file PersonneException.h
+ * \brief Fichier qui contient l'interface des classes qui souleve des exceptions
+ * 		  sur des objets personne
+ * \author Nicholas Rompré St-Yves
+ * \version 0.1
+ * \date 08/12/2020
  */
-
 #ifndef PERSONNEEXCEPTION_H_
 #define PERSONNEEXCEPTION_H_
 
