@@ -11,6 +11,7 @@
 #include "Circonscription.h"
 #include "Electeur.h"
 #include "Candidat.h"
+#include "PersonneException.h"
 using namespace elections;
 using namespace std;
 /**
@@ -47,7 +48,9 @@ public:
 						   electeur2("409 772 563", "Jo", "Blo", util::Date(21, 10, 1998),
 								     util::Adresse(54, "Commodore", "Levis", "GTA 5T9", "Quebec")),
 					       candidat1("046 454 286", "Marie", "Gosselin", util::Date(9, 10, 1997),
-					    		     util::Adresse(60, "Notre-Dame", "Montreal", "H1A 5H7", "Quebec"), 1)
+					    		     util::Adresse(60, "Notre-Dame", "Montreal", "H1A 5H7", "Quebec"), 1),
+						   candidat2("046 454 286", "Marie", "Gosselin", util::Date(9, 10, 1997),
+							         util::Adresse(60, "Notre-Dame", "Montreal", "H1A 5H7", "Quebec"), 1)
 			{
 				circonscription1.inscrire(electeur1);
 				circonscription1.inscrire(candidat1);
@@ -56,6 +59,7 @@ public:
 			Electeur electeur1;
 			Electeur electeur2;
 			Candidat candidat1;
+			Candidat candidat2;
 			std::vector<Personne*> m_vInscrits;
 };
 /**
@@ -82,39 +86,52 @@ TEST_F(uneCirconscription, reqDeputeElu)
  *        cas valide:
  *   		On parcourt la liste electoral et on verifie que la methode nous retourne vrai si la personne est presente
  *        cas invalide:
- *          Aucun d'identifié
+ *          On parcourt la liste electoral et on verifie que la methode nous retourne faux si la personne est absente
  */
 TEST_F(uneCirconscription, testPersonneEstDejaPresente)
 {
 	EXPECT_TRUE(circonscription1.personneEstDejaPresente("295 057 723"));
+}
+//cas invalide
+TEST_F(uneCirconscription, testPersonneEstDejaPresenteInvalide)
+{
+	EXPECT_FALSE(circonscription1.personneEstDejaPresente("783 346 059"));
 }
 /**
  * \brief  Test de la méthode inscrire(const Personne& p_nouvelInscrit)
  *        cas valide:
  *   		Inscrire: un electeur a bien ete inscrit dans la liste electoral
  *        cas invalide:
- *          Aucun d'identifié
+ *          Impossible d'inscrire une personne qui est deja inscrite
  */
 TEST_F(uneCirconscription, testInscrire)
-
 {
 	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
     circonscription1.inscrire(electeur2);
     EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
+}
+//cas invalide
+TEST_F(uneCirconscription, testInscrireInvalide)
+{
+	ASSERT_THROW(circonscription1.inscrire(candidat2), PersonneDejaPresentException);
 }
 /**
  * \brief  Test de la méthode desinscrire(const std::string& p_nas)
  *        cas valide:
  *   		desinscrire: un electeur a bien ete desinscrit de la liste electoral
  *        cas invalide:
- *          Aucun d'identifié
+ *          Impossible de desincrire la personne de la liste car elle n'est pas sur la liste
  */
 TEST_F(uneCirconscription, testDesinscrire)
-
 {
 	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
     circonscription1.desinscrire(electeur1.reqNas());
     EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
+}
+//cas invalide
+TEST_F(uneCirconscription, testDesinscrireInvalide)
+{
+	ASSERT_THROW(circonscription1.desinscrire("995 114 675"), PersonneAbsenteException);
 }
 /**
  * \brief Test du constructeur copie
