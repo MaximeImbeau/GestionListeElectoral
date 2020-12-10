@@ -107,7 +107,7 @@ TEST_F(uneCirconscription, testPersonneEstDejaPresenteInvalide)
 TEST_F(uneCirconscription, testInscrire)
 {
 	string circonscriptionTest = "circonscription : circonscription1\nDepute sortant :\nCandidat\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\nParti politique   : CONSERVATEUR\n\n\nListe des inscrits :\n\nElecteur\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\n\nCandidat\n----------------------------------------------\nNAS               : 046 454 286\nPrenom            : Marie\nNom               : Gosselin\nDate de naissance : Jeudi le 09 octobre 1997\nAdresse           : 60, Notre-Dame, Montreal, H1A 5H7, Quebec\nParti politique   : CONSERVATEUR\n\n";
-    ASSERT_EQ(circonscription1.reqCirconscriptionFormate(), circonscriptionTest);
+    ASSERT_EQ(circonscriptionTest, circonscription1.reqCirconscriptionFormate());
 }
 //cas invalide
 TEST_F(uneCirconscription, testInscrireInvalide)
@@ -121,11 +121,17 @@ TEST_F(uneCirconscription, testInscrireInvalide)
  *        cas invalide:
  *          Impossible de desincrire la personne de la liste car elle n'est pas sur la liste
  */
-TEST_F(uneCirconscription, testDesinscrire)
+TEST_F(uneCirconscription, testDesinscrire1)
 {
 	string circonscriptionTest = "circonscription : circonscription1\nDepute sortant :\nCandidat\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\nParti politique   : CONSERVATEUR\n\n\nListe des inscrits :\n\nCandidat\n----------------------------------------------\nNAS               : 046 454 286\nPrenom            : Marie\nNom               : Gosselin\nDate de naissance : Jeudi le 09 octobre 1997\nAdresse           : 60, Notre-Dame, Montreal, H1A 5H7, Quebec\nParti politique   : CONSERVATEUR\n\n";
     circonscription1.desinscrire(electeur1.reqNas());
-    ASSERT_EQ(circonscription1.reqCirconscriptionFormate(), circonscriptionTest);
+    ASSERT_EQ(circonscriptionTest, circonscription1.reqCirconscriptionFormate());
+}
+TEST_F(uneCirconscription, testDesinscrire2)
+{
+	string circonscriptionTest = "circonscription : circonscription1\nDepute sortant :\nCandidat\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\nParti politique   : CONSERVATEUR\n\n\nListe des inscrits :\n\nElecteur\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\n\n";
+    circonscription1.desinscrire(candidat1.reqNas());
+    ASSERT_EQ(circonscriptionTest, circonscription1.reqCirconscriptionFormate());
 }
 //cas invalide
 TEST_F(uneCirconscription, testDesinscrireInvalide)
