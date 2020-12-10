@@ -21,7 +21,7 @@ private slots:
 	void dialogueInscriptionElecteur();
 	void dialogueDesinscriptionPersonne();
 private:
-    elections::Circonscription *m_circonscription;
+    elections::Circonscription m_circonscription;
     Ui::CirconscriptionGUIClass ui;
 };
 
