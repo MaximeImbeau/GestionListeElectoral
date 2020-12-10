@@ -82,10 +82,10 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit)
 	{
 		m_vInscrits.push_back(p_nouvelInscrit.clone());
 	}
-//	else
-//	{
-//		throw PersonneDejaPresentException(p_nouvelInscrit.reqPersonneFormate());
-//	}
+	else
+	{
+		throw PersonneDejaPresentException(p_nouvelInscrit.reqPersonneFormate());
+	}
 	INVARIANTS();
 }
 /**
