@@ -106,9 +106,8 @@ TEST_F(uneCirconscription, testPersonneEstDejaPresenteInvalide)
  */
 TEST_F(uneCirconscription, testInscrire)
 {
-	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
-    circonscription1.inscrire(electeur2);
-    EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
+	string circonscriptionTest = "circonscription : circonscription1\nDepute sortant :\nCandidat\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\nParti politique   : CONSERVATEUR\n\n\nListe des inscrits :\n\nElecteur\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\n\nCandidat\n----------------------------------------------\nNAS               : 046 454 286\nPrenom            : Marie\nNom               : Gosselin\nDate de naissance : Jeudi le 09 octobre 1997\nAdresse           : 60, Notre-Dame, Montreal, H1A 5H7, Quebec\nParti politique   : CONSERVATEUR\n\n";
+    ASSERT_EQ(circonscription1.reqCirconscriptionFormate(), circonscriptionTest);
 }
 //cas invalide
 TEST_F(uneCirconscription, testInscrireInvalide)
@@ -124,9 +123,9 @@ TEST_F(uneCirconscription, testInscrireInvalide)
  */
 TEST_F(uneCirconscription, testDesinscrire)
 {
-	string texteReqCirconscriptionFormat = circonscription1.reqCirconscriptionFormate();
+	string circonscriptionTest = "circonscription : circonscription1\nDepute sortant :\nCandidat\n----------------------------------------------\nNAS               : 295 057 723\nPrenom            : Max\nNom               : Imbeau\nDate de naissance : Dimanche le 20 septembre 1998\nAdresse           : 54, Laurier, Quebec, G7A 5T9, Quebec\nParti politique   : CONSERVATEUR\n\n\nListe des inscrits :\n\nCandidat\n----------------------------------------------\nNAS               : 046 454 286\nPrenom            : Marie\nNom               : Gosselin\nDate de naissance : Jeudi le 09 octobre 1997\nAdresse           : 60, Notre-Dame, Montreal, H1A 5H7, Quebec\nParti politique   : CONSERVATEUR\n\n";
     circonscription1.desinscrire(electeur1.reqNas());
-    EXPECT_NE(circonscription1.reqCirconscriptionFormate(), texteReqCirconscriptionFormat);
+    ASSERT_EQ(circonscription1.reqCirconscriptionFormate(), circonscriptionTest);
 }
 //cas invalide
 TEST_F(uneCirconscription, testDesinscrireInvalide)
