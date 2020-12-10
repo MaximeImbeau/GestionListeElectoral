@@ -94,17 +94,19 @@ void Circonscription::inscrire(const Personne& p_nouvelInscrit)
  */
 void Circonscription::desinscrire(const string& p_nas)
 {
+	bool desinscription = false;
 	for(vector<Personne*>::iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
 	{
 		if(personneEstDejaPresente(p_nas))
 		{
 			delete *iter;
 			m_vInscrits.erase(iter);
+			desinscription = true;
 		}
-		else
-		{
-			throw PersonneAbsenteException("Ce NAS " + p_nas + " n’est pas inscrit a la liste electoral");
-		}
+	}
+	if(desinscription == false)
+	{
+		throw PersonneAbsenteException("Ce NAS " + p_nas + " n’est pas inscrit a la liste electoral");
 	}
 	INVARIANTS();
 }
