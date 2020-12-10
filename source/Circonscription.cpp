@@ -97,11 +97,12 @@ void Circonscription::desinscrire(const string& p_nas)
 	bool desinscription = false;
 	for(vector<Personne*>::iterator iter = m_vInscrits.begin(); iter != m_vInscrits.end(); iter++)
 	{
-		if(personneEstDejaPresente(p_nas))
+		if((*iter)->reqNas().compare(p_nas) == 0)
 		{
 			delete *iter;
 			m_vInscrits.erase(iter);
 			desinscription = true;
+			return;
 		}
 	}
 	if(desinscription == false)
